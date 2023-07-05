@@ -52,3 +52,21 @@ class GetDataTemplate:
             exit()
 
         return response
+
+    def get_api_EXAMPLE(self, dataframe):
+        self.logger.debug(f"- get_api_DATA")
+
+        url = f"""https://api.nal.usda.gov/fdc/v1/foods/list?api_key=KEY"""
+        response = requests.get(url)
+
+        if response.ok:
+            response = response.json()
+
+            if dataframe:
+                response = pd.DataFrame(response)
+
+        else:
+            self.logger.info(f"- get_api_DATA response not OK")
+            exit()
+
+        return response
