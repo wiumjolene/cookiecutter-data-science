@@ -12,6 +12,7 @@ pandas
 requests
 SQLAlchemy
 nbconvert
+plotly
 
 {% if cookiecutter.python_interpreter != 'python3' %}
 
